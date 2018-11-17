@@ -1,0 +1,426 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/nav.css" />
+		<style type="text/css">
+			#info-card {
+				width: 100%;
+				height: auto;
+				background-color: #FFFFFF;
+				padding-top: 15px;
+			}
+			
+			#address,
+			#phone,
+			#todo,
+			#replay {
+				width: 100%;
+				height: 44px;
+				padding-left: 20px;
+				padding-top: 10px;
+				border-bottom: 1px solid #e4e4e4 !important;
+			}
+			
+			#address img,
+			#phone img,
+			#todo img,
+			#replay img {
+				margin-top: -1px;
+				width: 30px;
+				height: 27px;
+				float: left;
+			}
+			
+			#address-con,
+			#phone-con,
+			#todo-con {
+				font-family: "微软雅黑";
+				font-size: 16px;
+				color: #000000;
+				float: left;
+				margin-left: 17px;
+			}
+			
+			#todo,#replay {
+				height: 120px;
+				border: none;
+			}
+			
+			#todo-con {
+				width: 80%;
+				font-size: 14px;
+				. height: auto;
+				color: #868686;
+			}
+			
+			#pic-card {
+				margin-top: -20px;
+				width: 100%;
+				padding-top: 26px;
+				height: auto;
+			}
+			
+			#pc-tit {
+				width: 100%;
+				height: 26px;
+				padding-left: 20px;
+				margin-top: 3px;
+				position: absolute;
+			}
+			
+			#pc-tit img {
+				width: 19px;
+				height: 19px;
+				float: left;
+			}
+			
+			#pc-tit p {
+				font-size: 14px;
+				margin-left: 10px;
+				color: #000000;
+				float: left;
+			}
+			
+			#pc-img {
+				margin-top: 26px;
+				width: 100%;
+				height: 97px;
+				background-color: #FFFFFF;
+			}
+			
+			#pc-img img {
+				width: 65px;
+				height: 65px;
+				margin-top: 15px;
+				margin-left: calc((100% - (75px * 4))/4);
+				border-radius: 5px;
+			}
+			
+			#imgpopo {
+				width: 80%;
+				height: auto;
+				margin-left: 10%;
+				position: fixed;
+				top: 100px;
+				padding: 0;
+			}
+			
+			#lookimg {
+				width: 100%;
+				height: auto;
+				margin-top: 5px;
+				background-size:100% ;
+				background-repeat:no-repeat ;
+			}
+			
+			#close {
+				width: 26px;
+				height: 26px;
+				position: absolute;
+				top: -10px;
+				right: -10px;
+			}
+			
+			#statecard {
+				margin-top: 20px;
+				width: 100%;
+				height: 250px;
+				background-color: #FFFFFF;
+				margin-bottom: 50px;
+				overflow: auto;
+			}
+			
+			#s-title {
+				width: 100%;
+				height: 45px;
+				border-bottom: 1px solid #CCCCCC;
+				position: absolute;
+				background-color: #FFFFFF;
+			}
+			
+			#s-title img {
+				height: 19px;
+				margin-top: 13px;
+				margin-left: 15px;
+				float: left;
+			}
+			
+			#s-title p {
+				font-size: 14px;
+				margin-top: 14px;
+				float: left;
+				color: #FFCC00;
+				font-family: "黑体";
+				margin-left: 5px;
+			}
+			
+			.s-item {
+				width: 100%;
+				height: 38px;
+			}
+			
+			.normal-dot {
+				width: 8px;
+				height: 8px;
+				border-radius: 5px;
+				background-color: #999999;
+				float: left;
+				margin-top: 17px;
+				margin-left: 25px;
+			}
+			
+			.active-dot {
+				background-color: orange !important;
+			}
+			
+			.si-state {
+				float: left;
+				font-size: 14px;
+				font-family: "微软雅黑";
+				margin-top: 12px;
+				margin-left: 5px;
+			}
+			
+			.si-time {
+				float: right;
+				font-size: 14px;
+				font-family: "微软雅黑";
+				margin-top: 9px;
+				margin-right: 9px;
+			}
+			
+			.s-line {
+				height: 25px;
+				margin-left: 29px;
+				border-left: 1px solid #CCCCCC;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header id="hey" class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">信息详情</h1>
+		</header>
+		<div class="mui-content">
+			<div id="info-card">
+				<div id="address">
+					<img src="pic/mnuePlace.png" />
+					<p style="margin-top: 3px;" id="address-con"></p>
+				</div>
+				<div id="phone">
+					<img style="width: 19px;height: 19px;margin-left: 5px;margin-top: 3px;" src="pic/phone.png" />
+					<p style="margin-left: 21px;margin-top: 3px;" id="phone-con"></p>
+				</div>
+				<div id="todo">
+					<img src="pic/TODO.png" />
+					<p style=" color:#000000;margin-top: 3px;">&nbsp;事件详情</p>
+					
+					<p id="todo-con"></p>
+
+				</div>
+				<div id="replay">
+					<img src="pic/replay.png" />
+					<p style="color:#000000;margin-top: 3px;">&nbsp;维修反馈</p>
+					<p id="replay-con"></p>
+
+				</div>
+			</div>
+			<div id="pic-card">
+				<div id="pc-tit">
+					<img src="pic/Carmen.png" />
+					<p>具体照片</p>
+				</div>
+				<div id="pc-img">
+					<img class="pci-img" src="" />
+					<img class="pci-img" src="" />
+					<img class="pci-img" src="" />
+					<img class="pci-img" src="" />
+				</div>
+
+			</div>
+			<div id="statecard">
+				<div id="s-title">
+					<img src="pic/info.png" />
+					<p>维修跟踪</p>
+				</div>
+				<div style="margin-top: 50px;" class="s-item">
+					<div class="normal-dot"></div>
+					<p class="si-state">分配中</p>
+					<p class="si-time"></p>
+				</div>
+				<div class="s-line"></div>
+				<div class="s-item">
+					<div class="normal-dot"></div>
+					<p class="si-state">审核中</p>
+					<p class="si-time"></p>
+				</div>
+				<div class="s-line"></div>
+				<div class="s-item">
+					<div class="normal-dot"></div>
+					<p class="si-state">维修中</p>
+					<p class="si-time"></p>
+				</div>
+				<div class="s-line"></div>
+				<div class="s-item">
+					<div class="normal-dot"></div>
+					<p class="si-state">维修完成</p>
+					<p class="si-time"></p>
+				</div>
+				<div style="border-left-style: dashed ;" class="s-line"></div>
+				<div class="s-item">
+					<div class="normal-dot"></div>
+					<p class="si-state">维修人员拒绝</p>
+					<p class="si-time"></p>
+				</div>
+			</div>
+		</div>
+		<div id="imgpopo" class="mui-popover">
+			<img id="lookimg" src="" />
+			<img id="close" src="pic/close.png" />
+		</div>
+
+		<script src="js/mui.min.js"></script>
+		<script src="js/ajax.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.init()
+
+			document.addEventListener("plusready", function() {
+//				plus.nativeUI.showWaiting()
+			})
+
+			myajax.backfun = function(data) {
+//				plus.nativeUI.closeWaiting()
+				document.getElementById("address-con").innerHTML = "<b>" + data.data.orderAddress + "</b>"
+				document.getElementById("phone-con").innerHTML = "<b>" + data.data.orderContact + "</b>"
+				document.getElementById("todo-con").innerHTML = data.data.orderDescription
+				document.getElementById("replay-con").innerHTML = data.data.message
+				var i;
+
+				if(data.data.photos.photoPath1 != "") {
+					document.getElementsByClassName("pci-img")[0].src = myajax.baseurl + "files/thumb/" + data.data.photos.photoPath1
+				} else {
+					document.getElementsByClassName("pci-img")[0].src = "pic/withoutimg.png"
+				}
+
+				if(data.data.photos.photoPath2 != "") {
+					document.getElementsByClassName("pci-img")[1].src = myajax.baseurl + "files/thumb/" + data.data.photos.photoPath2
+				} else {
+					document.getElementsByClassName("pci-img")[1].src = "pic/withoutimg.png"
+				}
+
+				if(data.data.photos.photoPath3 != "") {
+					document.getElementsByClassName("pci-img")[2].src = myajax.baseurl + "files/thumb/" + data.data.photos.photoPath3
+				} else {
+					document.getElementsByClassName("pci-img")[2].src = "pic/withoutimg.png"
+				}
+
+				if(data.data.photos.photoPath4 != "") {
+					document.getElementsByClassName("pci-img")[3].src = myajax.baseurl + "files/thumb/" + data.data.photos.photoPath4
+				} else {
+					document.getElementsByClassName("pci-img")[3].src = "pic/withoutimg.png"
+				}
+
+				switch(data.data.orderState) {
+					case "distributing":
+						i = 0;
+						break;
+					case "auditing":
+						i = 1;
+						break;
+					case "maintenancing":
+						i = 2;
+						break;
+					case "maintenanced":
+						i = 3;
+						break;
+					case "refuse":
+						i = 4;
+						break;
+				}
+				for(j = 0; j < i; j++) {
+					document.getElementsByClassName("si-time")[j].innerHTML = "已完成"
+				}
+				document.getElementsByClassName("si-time")[j].innerHTML = "进行中"
+				if(j == 3) {
+					document.getElementsByClassName("si-time")[j].innerHTML = "已完成"
+
+				}
+
+				document.getElementsByClassName("normal-dot")[i].className = "normal-dot active-dot"
+				mui('body').on('tap', '.pci-img', function() {
+					var index = $(this).index();
+					switch(index) {
+						case 0:
+							{
+								if(data.data.photos.photoPath1 != "") {
+									document.getElementById("lookimg").src = myajax.baseurl + "files/original/" + data.data.photos.photoPath1
+//									document.getElementById("lookimg").style.bac="background-image: url('"+myajax.baseurl+" + 'files/thumb/' + data.data.photos.photoPath1');"
+									document.getElementById("lookimg").style.backgroundImage="url("+myajax.baseurl + "files/thumb/" + data.data.photos.photoPath1+")"
+									console.log()
+									
+								mui('#imgpopo').popover('toggle');
+								} else {
+//									document.getElementById("lookimg").src = "pic/withoutimg.png"
+								}
+							}
+							break;
+						case 1:
+							{
+								if(data.data.photos.photoPath2 != "") {
+									document.getElementById("lookimg").src = myajax.baseurl + "files/original/" + data.data.photos.photoPath2
+									document.getElementById("lookimg").style.backgroundImage="url("+myajax.baseurl + "files/thumb/" + data.data.photos.photoPath2+")"
+//									document.getElementById("lookimg").style="background-image: url('"+myajax.baseurl+" + 'files/thumb/' + data.data.photos.photoPath2');"
+									
+								mui('#imgpopo').popover('toggle');
+								} else {
+//									document.getElementById("lookimg").src = "pic/withoutimg.png"
+								}
+							}
+							break;
+						case 2:
+							{
+								if(data.data.photos.photoPath3 != "") {
+									document.getElementById("lookimg").src = myajax.baseurl + "files/original/" + data.data.photos.photoPath3
+									document.getElementById("lookimg").style.backgroundImage="url("+myajax.baseurl + "files/thumb/" + data.data.photos.photoPath3+")"
+//									document.getElementById("lookimg").style="background-image: url('"+myajax.baseurl+" + 'files/thumb/' + data.data.photos.photoPath3');"
+									
+								mui('#imgpopo').popover('toggle');
+								} else {
+//									document.getElementById("lookimg").src = "pic/withoutimg.png"
+								}
+							}
+							break;
+						case 3:
+							{
+								if(data.data.photos.photoPath4 != "") {
+									document.getElementById("lookimg").src = myajax.baseurl + "files/original/" + data.data.photos.photoPath4
+									document.getElementById("lookimg").style.backgroundImage="url("+myajax.baseurl + "files/thumb/" + data.data.photos.photoPath4+")"
+//									document.getElementById("lookimg").style="background-image: url('"+myajax.baseurl+" + 'files/thumb/' + data.data.photos.photoPath4');"
+									
+								mui('#imgpopo').popover('toggle');
+								} else {
+//									document.getElementById("lookimg").src = "pic/withoutimg.png"
+								}
+							}
+							break;
+					}
+
+					
+				})
+			}
+			myajax.get("repair/order/orderId/" + localStorage.getItem("repair-id"))
+
+			mui('body').on('tap', '#close', function() {
+				mui('#imgpopo').popover('toggle');
+			})
+		</script>
+	</body>
+
+</html>

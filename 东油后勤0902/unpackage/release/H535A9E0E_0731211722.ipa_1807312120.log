@@ -1,0 +1,74 @@
+[2018-07-31 21:20:32 CST] <Thread-1384>  INFO: Logging to file: C:\Users\Administrator\Desktop\HTMLcode\东油后勤\unpackage\release\H535A9E0E_0731211722.ipa_1807312120.log
+[2018-07-31 21:20:32 CST] <Thread-1384>  INFO: Logging configured successfully.
+[2018-07-31 21:20:32 CST] <Thread-1384>  INFO: iTMSTransporter : iTunes Store Transporter [1.9.8]
+[2018-07-31 21:20:32 CST] <Thread-1384>  INFO: OS identifier: Windows 10 10.0 (x86); jvm=25.181-b13; jre=1.8.0_181-b13
+[2018-07-31 21:20:32 CST] <Thread-1384>  INFO: Memory: [JVM] 32M free, 92M total, 247M max [System] (Physical) 1425M free, 8112M total (Swap) 3845M free, 22244M total
+[2018-07-31 21:20:32 CST] <Thread-1384>  INFO: Upload mode selected.
+[2018-07-31 21:20:32 CST] <Thread-1384>  INFO: Examining the package at: C:\Users\ADMINI~1\AppData\Local\Temp\au\itmsp\1419521119.itmsp
+[2018-07-31 21:20:32 CST] <Thread-1384>  INFO: Ensuring that package has well formed metadata file...
+[2018-07-31 21:20:32 CST] <Thread-1384>  INFO: Gathering the list of valid files from the package ...
+[2018-07-31 21:20:32 CST] <Thread-1384>  INFO: Finished gathering the list of valid files from the package.
+[2018-07-31 21:20:32 CST] <Thread-1384>  INFO: Verify progress: Analyzing metadata (Step 3/?)
+[2018-07-31 21:20:32 CST] <Thread-1384>  INFO: Performing authentication of package 1419521119.itmsp ...
+[2018-07-31 21:20:32 CST] <Thread-1384>  INFO: Verify progress: Analyzing metadata (Step 4/2)
+[2018-07-31 21:20:32 CST] <Thread-1384>  INFO: id = 20180731212032-011
+[2018-07-31 21:20:34 CST] <Thread-1384>  INFO: id = 20180731212034-895
+[2018-07-31 21:20:37 CST] <Thread-1384>  INFO: The list of files requested for upload by Apple is: [metadata.xml, 1419521119.ipa].  These are the files that will be uploaded.
+[2018-07-31 21:20:37 CST] <Thread-1384>  INFO: Starting media analysis of assets
+[2018-07-31 21:20:37 CST] <Thread-1384>  INFO: Verify progress: Adding asset to analyze: 1419521119.ipa (Step 5/3)
+[2018-07-31 21:20:37 CST] <Thread-1384>  INFO: Asset media analysis has completed
+[2018-07-31 21:20:37 CST] <Thread-1384>  INFO: id = 20180731212037-040
+[2018-07-31 21:20:49 CST] <Thread-1384>  INFO: Verify progress: Validating assets (Step 6/3)
+[2018-07-31 21:20:49 CST] <Thread-1384>  INFO: Verify progress: Validating assets (Step 7/3)
+[2018-07-31 21:20:49 CST] <Thread-1384>  INFO: id = 20180731212049-485
+[2018-07-31 21:20:59 CST] <Thread-1384>  INFO: The list of files requested for upload by Apple is: [metadata.xml, 1419521119.ipa].  These are the files that will be uploaded.
+[2018-07-31 21:20:59 CST] <Thread-1384>  INFO: Done performing authentication.
+[2018-07-31 21:20:59 CST] <Thread-1384>  INFO: The asset replacement verification check is disabled.
+[2018-07-31 21:20:59 CST] <Thread-1384>  INFO: Checking the file size of the files: [1419521119.ipa]
+[2018-07-31 21:20:59 CST] <Thread-1384>  INFO: Done checking the file sizes.
+[2018-07-31 21:20:59 CST] <Thread-1384>  INFO: Checking the md5 checksum of the files: [1419521119.ipa]
+[2018-07-31 21:20:59 CST] <Thread-1384>  INFO: Done checking the md5 checksum.
+[2018-07-31 21:20:59 CST] <Thread-1384>  INFO: Preparing to upload package 1419521119.itmsp ...
+[2018-07-31 21:20:59 CST] <Thread-1384>  INFO: Starting to upload the package's files (1419521119.itmsp) ...
+[2018-07-31 21:20:59 CST] <Thread-1384>  INFO: Attempting to connect to Apple's webDAV...
+[2018-07-31 21:21:00 CST] <Thread-1384>  INFO: Successfully connected to Apple's webDAV.
+[2018-07-31 21:21:00 CST] <Thread-1384>  INFO: Attempting to create the package's folder on Apple's webDAV: /5/ZH68GUY798/uploading/1419521119-20180731062054-389.itmsp/
+[2018-07-31 21:21:01 CST] <Thread-1384>  INFO: Successfully created/set the package's folder on Apple's webDAV.
+[2018-07-31 21:21:01 CST] <Thread-1384>  INFO: Determining which files should be uploaded ...
+[2018-07-31 21:21:01 CST] <Thread-1384>  INFO: Finished determining which files should be uploaded.
+[2018-07-31 21:21:01 CST] <Thread-1384>  INFO: Computing total size of files to upload ...
+[2018-07-31 21:21:01 CST] <Thread-1384>  INFO: Done computing total size of files to upload.
+[2018-07-31 21:21:01 CST] <Thread-1384>  INFO: Starting upload of file: C:\Users\ADMINI~1\AppData\Local\Temp\au\itmsp\1419521119.itmsp\metadata.xml ...
+[2018-07-31 21:21:01 CST] <Thread-1384>  INFO:      File: metadata.xml 528/528, 100% completed
+[2018-07-31 21:21:01 CST] <Thread-1384>  INFO:   Successfully uploaded file: C:\Users\ADMINI~1\AppData\Local\Temp\au\itmsp\1419521119.itmsp\metadata.xml
+[2018-07-31 21:21:02 CST] <Thread-1384>  INFO: Package upload progress: 0% completed
+[2018-07-31 21:21:02 CST] <Thread-1384>  INFO: Finished upload of file: C:\Users\ADMINI~1\AppData\Local\Temp\au\itmsp\1419521119.itmsp\metadata.xml.
+[2018-07-31 21:21:02 CST] <Thread-1384>  INFO: Starting upload of file: C:\Users\ADMINI~1\AppData\Local\Temp\au\itmsp\1419521119.itmsp\1419521119.ipa ...
+[2018-07-31 21:21:31 CST] <Thread-1384>  INFO:      File: 1419521119.ipa 10485760/21085848, 49% completed
+[2018-07-31 21:21:59 CST] <Thread-1384>  INFO:      File: 1419521119.ipa 20971520/21085848, 99% completed
+[2018-07-31 21:22:00 CST] <Thread-1384>  INFO:      File: 1419521119.ipa 21085848/21085848, 100% completed
+[2018-07-31 21:22:00 CST] <Thread-1384>  INFO:   Successfully uploaded file: C:\Users\ADMINI~1\AppData\Local\Temp\au\itmsp\1419521119.itmsp\1419521119.ipa
+[2018-07-31 21:22:00 CST] <Thread-1384>  INFO: Package upload progress: 100% completed
+[2018-07-31 21:22:00 CST] <Thread-1384>  INFO: Finished upload of file: C:\Users\ADMINI~1\AppData\Local\Temp\au\itmsp\1419521119.itmsp\1419521119.ipa.
+[2018-07-31 21:22:00 CST] <Thread-1384>  INFO: Gathering list of uploaded files from Apple's webDAV...
+[2018-07-31 21:22:00 CST] <Thread-1384>  INFO: Done gathering list of uploaded files from Apple's webDAV...
+[2018-07-31 21:22:00 CST] <Thread-1384>  INFO: Checking if any encryption/compression files are outdated locally ...
+[2018-07-31 21:22:00 CST] <Thread-1384>  INFO: Finished checking if any encryption/compression files are outdated locally.
+[2018-07-31 21:22:00 CST] <Thread-1384>  INFO: Confirming that the previously uploaded files were uploaded correctly ...
+[2018-07-31 21:22:00 CST] <Thread-1384>  INFO: Finished confirming that the previously uploaded files were uploaded correctly.
+[2018-07-31 21:22:00 CST] <Thread-1384>  INFO: Determining which files were not uploaded ...
+[2018-07-31 21:22:00 CST] <Thread-1384>  INFO: Finished determining which files were not uploaded.
+[2018-07-31 21:22:00 CST] <Thread-1384>  INFO: Done performing upload.
+[2018-07-31 21:22:00 CST] <Thread-1384>  INFO: id = 20180731212200-022
+[2018-07-31 21:22:08 CST] <Thread-1384>  INFO: Done performing uploadDone notification to Apple.
+[2018-07-31 21:22:08 CST] <Thread-1384>  INFO: The package: C:\Users\ADMINI~1\AppData\Local\Temp\au\itmsp\1419521119.itmsp has been successfully uploaded.
+[2018-07-31 21:22:08 CST] <Thread-1384>  INFO: Verify progress: Operation completed (Step 3/3)
+
+
+
+Package Summary:
+ 
+1 packages were uploaded successfully:
+	C:\Users\ADMINI~1\AppData\Local\Temp\au\itmsp\1419521119.itmsp
+[2018-08-01 13:44:56 CST] <Thread-4455> result status not 0 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"><plist version="1.0"><dict><key>resultCode</key><integer>1100</integer><key>userString</key><string>Your session has expired.  Please log in.</string><key>resultString</key><string>authentication.failed</string><key>httpCode</key><integer>200</integer><key>creationTimestamp</key><string>2018-08-01T05:44:58Z</string><key>protocolVersion</key><string>QH65B2</string><key>userLocale</key><string>en_US</string><key>requestUrl</key><string>https://developerservices2.apple.com/services/QH65B2/ios/listProvisioningProfiles.action</string><key>responseId</key><string>bb42d054-00f1-4d57-855e-ac5fe3ee3b1e</string></dict></plist>
+[2018-08-01 13:45:09 CST] <Thread-4457> result status not 0 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"><plist version="1.0"><dict><key>resultCode</key><integer>1100</integer><key>userString</key><string>Your session has expired.  Please log in.</string><key>resultString</key><string>authentication.failed</string><key>httpCode</key><integer>200</integer><key>creationTimestamp</key><string>2018-08-01T05:45:10Z</string><key>protocolVersion</key><string>QH65B2</string><key>userLocale</key><string>en_US</string><key>requestUrl</key><string>https://developerservices2.apple.com/services/QH65B2/ios/listProvisioningProfiles.action</string><key>responseId</key><string>734e3271-3238-4600-81ea-4456a8e30279</string></dict></plist>

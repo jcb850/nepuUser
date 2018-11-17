@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/nav.css" />
+		<style type="text/css">
+			.thing-dis {
+				color: #000000;
+				float: left;
+				font-size: 16px;
+				font-family: "黑体";
+				font-weight: 900;
+			}
+			
+			.thing-time {
+				float: right;
+			}
+			
+			.thing-pla {
+				/*text-indent: 1em;*/
+				font-size: 13px;
+				clear: both;
+				float: left;
+			}
+			
+			.i-con {
+				float: left;
+				width: 70%;
+			}
+			
+			.i-img {
+				width: 30%;
+				/*border: 1px solid #000000;*/
+				height: 82px;
+				float: left;
+				padding-top: 3px;
+				padding-right: 5px;
+			}
+			
+			.i-img img {
+				width: 100%;
+				height: 100%;
+			}
+			
+			#search {
+				margin-top: 10px;
+				z-index: 99;
+				position: fixed;
+				width: 96%;
+				margin-left: 2%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">失物招领</h1>
+		</header>
+		<div class="mui-content">
+			<div id="search" class="mui-input-row mui-search">
+				<input id="s-input" type="search" class="mui-input-clear" placeholder="">
+			</div>
+
+			<ul id="ajax-con" style="margin-top: 55px;" class="mui-table-view">
+				<!--<li class="item mui-table-view-cell">
+					<div class="i-img">
+						<img src="hospic/bc.jpg" />
+					</div>
+					<div class="i-con">
+						<p class="thing-dis">一只金色的男士手表</p>
+						<p class="thing-time">2018/08/17</p>
+						<p class="thing-pla">启智篮球场东侧篮球架下拾到金色男士手表一只，金属表带</p>
+						<p class="thing-pla">联系方式：15776503810</p>
+					</div>
+
+				</li>-->
+
+			</ul>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/jquery-2.1.0.js"></script>
+		<script src="js/ajax.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.init()
+
+			myajax.backfun = function(data) {
+//				data.data.list=data.data.list.reverse()//数组反转排序 注意！后端排序后请删除
+				data.data.list.sort(sortby)
+				
+				for(i = 0; i < data.data.list.length; i++) {
+					build(data.data.list[i])
+				}
+				mui('#ajax-con').on('tap', '.item', function() {
+					localStorage.setItem("lostid", this.firstChild.innerHTML)
+					//					console.log(this.firstChild.innerHTML)
+					location.href = "losethings-con.html"
+				})
+			}
+			myajax.get("lost/and/found")
+			function erimg(obj){
+				obj.src="pic/withoutimg.png"
+			}
+			function build(data) { //构建dom的方法
+				var time = new Date(data.pickTime)
+				var imgurl
+				if(data.photo!=""){
+					imgurl=myajax.baseurl + "files/thumb/" + data.photo
+				}else{
+					imgurl="pic/withoutimg.png"
+				}
+				$("#ajax-con").append("<li class='item mui-table-view-cell'>" +
+					"<p style='display: none;'>" + data.id + "</p>" +
+					"<div class='i-img'>" +
+					"<img onerror='erimg(this)' src=" +imgurl + "/>" +
+					"</div>" +
+					"<div class='i-con'>" +
+					"<p class='thing-dis'>" + data.title + "</p>" +
+					"<p class='thing-time'>" + time.getFullYear() + "/" + (time.getMonth() + 1).toString() + "/" + time.getDate() + "</p>" +
+					//					"<p class='thing-time'>111</p>" +
+					"<p class='thing-pla'>" + data.pickAddress + "</p>" +
+					"<p class='thing-pla'>联系方式：" + data.contactWay + "</p>" +
+					"</div></li>")
+			}
+			document.getElementById("search").addEventListener("input", function() { //动态查询
+				var item = document.getElementsByClassName("item")
+				for(i = 0; i < item.length; i++) {
+					if(item[i].innerHTML.indexOf(document.getElementById("s-input").value) == -1) {
+						item[i].style.display = "none";
+					} else {
+						item[i].style.display = "block";
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>

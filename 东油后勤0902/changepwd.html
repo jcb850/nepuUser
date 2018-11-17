@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/nav.css" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			body {
+				background: #66ccff;
+			}
+			
+			#title {
+				margin-top: 60px;
+				margin-left: 27px;
+				height: 37px;
+				font-family: "微软雅黑";
+				color: #FFFFFF;
+				font-size: 28px;
+			}
+			
+			.changeitem {
+				margin-left: 22px;
+				margin-bottom: 10px;
+			}
+			
+			.changeitem p {
+				color: #FFFFFF;
+			}
+			
+			.changeitem input {
+				background-color: initial;
+				border: none;
+				width: 92%;
+				width: ;
+				border-radius: 0;
+				border-bottom: 1px solid #FFFFFF;
+			}
+			
+			.btn {
+				width: 42%;
+				height: 42px;
+				border: 3px solid #FFFFFF;
+				border-radius: 21px;
+				color: #FFFFFF;
+				text-align: center;
+				line-height: 42px;
+				margin-top: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<p style="color: #66CCFF; position: absolute;top: 0;">这是天依蓝，不过你们应该看不到这行字哦</p>
+		<p id="title">修改密码</p>
+		<div class="changeitem">
+			<p>原密码</p>
+			<input class="item-input" id="oldpwd" type="password" name="" value="" />
+		</div>
+		<div class="changeitem">
+			<p>新密码</p>
+			<input class="item-input" id="newpwd" type="password" name="" value="" />
+		</div>
+		<div class="changeitem">
+			<p>确认密码</p>
+			<input class="item-input" id="newpwd2" type="password" name="" value="" />
+		</div>
+		<div id="btns">
+			<div id="submit" style="float: left;margin-left: 5%;" class="btn">
+				确&nbsp;&nbsp;认
+			</div>
+			<div onclick="mui.back()" style="float: right;margin-right: 5%;" class="btn">
+				返&nbsp;&nbsp;回
+			</div>
+		</div>
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/ajax.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/checkjs.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			document.getElementById("submit").addEventListener("tap", function() {
+
+				if(mycheck.empty("item-input") && document.getElementsByClassName("item-input")[1].value == document.getElementsByClassName("item-input")[2].value) {
+					myajax.data = {
+						oldPassword: document.getElementById("oldpwd").value,
+						newPassword: document.getElementById("newpwd").value
+					}
+					myajax.backfun=function(){
+						mui.toast('修改成功')
+						location.href="login.html"
+					}
+					myajax.put("user/updatePassword")
+				}else{
+					mui.toast('请检查您的信息')
+				}
+
+			})
+		</script>
+	</body>
+
+</html>

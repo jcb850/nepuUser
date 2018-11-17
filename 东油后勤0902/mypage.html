@@ -1,0 +1,428 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/nav.css" />
+
+		<style type="text/css">
+			.mui-control-content {
+				background-color: white;
+				min-height: 215px;
+			}
+			
+			.sar-con {
+				min-height: 170px;
+			}
+			
+			.mui-control-content .mui-loading {
+				margin-top: 50px;
+			}
+			
+			#info {
+				width: 100%;
+				height: 130px;
+				background: #66a3ff;
+			}
+			
+			#fun-icon {
+				float: right;
+				margin-right: 22px;
+				margin-top: 12px;
+			}
+			
+			#fun-icon img {
+				width: 24px;
+				height: 24px;
+			}
+			
+			#headimg {
+				width: 67px;
+				margin-top: 35px;
+				margin-left: 27px;
+			}
+			
+			#name,
+			#snumber {
+				color: #FFFFFF;
+				position: absolute;
+				left: 120px;
+				font-family: "微软雅黑";
+			}
+			
+			#name {
+				font-size: 18px;
+				top: 40px;
+			}
+			
+			#snumber {
+				top: 75px;
+			}
+			
+			#edit {
+				font-size: 14px;
+				color: #FFFFFF;
+				float: right;
+				margin-top: 100px;
+				margin-right: -75px;
+			}
+			
+			.card {
+				width: 100%;
+				background-color: #FFFFFF;
+				margin-top: 20px;
+				padding-top: 10px;
+			}
+			
+			#cs-con {
+				color: #000000;
+				font-family: "微软雅黑";
+				font-size: 14px;
+				margin-left: 15px;
+			}
+			
+			#cube {
+				width: 18px;
+				height: 18px;
+				background: #008CC9;
+				border-radius: 2px;
+				margin-left: 15px;
+				float: left;
+			}
+			
+			#g-con {
+				font-family: "微软雅黑";
+				font-size: 14px;
+				float: left;
+				margin-left: 10px;
+				margin-top: -1px;
+			}
+			
+			.study {
+				height: 74px;
+				margin-top: 0;
+			}
+			
+			#arrow {
+				float: right;
+				width: 16px;
+				height: 16px;
+				color: #999999;
+				margin-right: 10px;
+				margin-top: -5px;
+			}
+			
+			#cm-tit img {
+				width: 23px;
+				height: 23px;
+				margin-top: -4px;
+				margin-left: 12px;
+				float: left;
+			}
+			
+			#cm-tit p {
+				font-size: 16px;
+				color: #000000;
+				margin-top: -2px;
+				margin-left: 5px;
+				float: left;
+			}
+			
+			.myrepair {
+				height: 259px;
+			}
+			
+			.mui-scroll-wrapper {
+				overflow: auto;
+			}
+			
+			.info-item {
+				height: 86px;
+			}
+			
+			.ii-img {
+				width: 65px !important;
+				height: 65px !important;
+				border-radius: 40px;
+				border: none !important;
+				float: left;
+			}
+			
+			.ii-con {
+				float: left;
+			}
+			
+			.iic-tit {
+				font-size: 16px;
+				color: #000000;
+				margin-top: 7px;
+				margin-left: 10px;
+				font-family: "微软雅黑";
+			}
+			
+			.iic-con {
+				margin-left: 10px;
+				font-size: 14px !important;
+				color: #666666;
+				margin-top: 5px;
+			}
+			
+			.ii-more {
+				font-size: 14px;
+				color: #617FDE;
+				float: right;
+				margin-top: 40px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="mui-content">
+			<div id="info">
+				<div id="fun-icon">
+					<img style="margin-right: 18px;" src="pic/setting.png" />
+					<img src="pic/alertforuser.png" />
+				</div>
+				<img id="headimg" src="pic/headimg.png" />
+				<p id="name"></p>
+				<p id="snumber">学号：</p>
+				<p onclick="location.href='changepwd.html'" id="edit">修改密码></p>
+			</div>
+			<!--<div class="card study">
+				<p id="cs-con">学业情况</p>
+				<div id="grade">
+					<div id="cube">
+					</div>
+					<p id="g-con"> 大一 | 软件工程</p>
+					<span id="arrow" class="mui-icon mui-icon-arrowright"></span>
+				</div>
+			</div>-->
+			<div class="card myrepair">
+				<div id="cm-tit">
+					<img src="pic/edit.png" />
+					<p>我的报修</p>
+				</div>
+				<div id="history">
+
+					<div  id="slider" class="mui-slider">
+						<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+							<a class="mui-control-item mui-active" href="#item1mobile">
+								待审核
+							</a>
+							<a class="mui-control-item" href="#item2mobile">
+								待维修
+							</a>
+							<a class="mui-control-item" href="#item3mobile">
+								已完工
+							</a>
+							<a class="mui-control-item" href="#item4mobile">
+								全部
+							</a>
+						</div>
+						<div  id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-3"></div>
+						<div style="height: 345px  !important;" class="mui-slider-group">
+							<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+								<div id="scroll1" class="mui-scroll-wrapper">
+									<div class="mui-scroll">
+										<ul id="waitingForAudit" class="waitingForAudit mui-table-view">
+										
+											
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div id="item2mobile" class="mui-slider-item mui-control-content">
+								<div id="scroll2" class="mui-scroll-wrapper">
+									<div class="mui-scroll">
+										<ul id="waitingForRepair" class="waitingForRepair mui-table-view">
+											
+										</ul>
+									</div>
+								</div>
+
+							</div>
+							<div id="item3mobile" class="mui-slider-item mui-control-content">
+								<div id="scroll3" class="mui-scroll-wrapper">
+									<div class=" mui-scroll">
+										<ul class="haveBeenRepaired mui-table-view">
+
+										</ul>
+
+									</div>
+								</div>
+
+							</div>
+							<div id="item4mobile" class="mui-slider-item mui-control-content">
+								<div id="scroll4" class="mui-scroll-wrapper">
+									<div class=" mui-scroll">
+										<ul class="finish mui-table-view">
+
+										</ul>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!--<div  class="card suggest">
+					<div id="cm-tit">
+						<img src="pic/edit.png" />
+						<p>我的发帖</p>
+					</div>
+					<div id="slider" class="mui-slider">
+						<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+							<a class="mui-control-item mui-active" href="#item5mobile">
+								建议
+							</a>
+							<a class="mui-control-item" href="#item6mobile">
+								咨询
+							</a>
+							<a class="mui-control-item" href="#item7mobile">
+								投诉
+							</a>
+
+						</div>
+						<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-4"></div>
+						<div class="mui-slider-group">
+							<div id="item5mobile" class="mui-slider-item mui-control-content sar-con mui-active">
+								<div id="scroll1" class="mui-scroll-wrapper">
+									<div class="mui-scroll">
+										<ul class="mui-table-view">
+
+											<li class="info-item mui-table-view-cell">
+												<div class="ii-con">
+													<p class="iic-tit"><b>博闻1A502</b></p>
+													<p class="iic-con">门窗破坏</p>
+												</div>
+											</li>
+
+											<li class="info-item mui-table-view-cell">
+												<div class="ii-con">
+													<p class="iic-tit"><b>博闻1A502</b></p>
+													<p class="iic-con">门窗破坏</p>
+												</div>
+											</li>
+
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div id="item6mobile" class="mui-slider-item mui-control-content sar-con">
+								<div id="scroll2" class="mui-scroll-wrapper">
+									<div class="mui-scroll">
+										<ul class="mui-table-view">
+
+										</ul>
+									</div>
+								</div>
+
+							</div>
+							<div id="item7mobile" class="mui-slider-item mui-control-content sar-con">
+								<div id="scroll3" class="mui-scroll-wrapper">
+									<div class="mui-scroll">
+
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+				</div>-->
+
+			</div>
+		</div>
+		<!--<div style="width: 100%; height: 300px;float: left;">-->
+			
+		</div>
+		<nav class="mui-bar mui-bar-tab">
+			<a id="index" class="mui-tab-item">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a id="mypage" class="mui-tab-item mui-active">
+				<span class="mui-icon mui-icon-contact "></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+
+			<a id="morepage" class="mui-tab-item ">
+				<span class="mui-icon mui-icon-gear"></span>
+				<span class="mui-tab-label">更多</span>
+			</a>
+		</nav>
+		<script src="js/mui.min.js"></script>
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/ajax.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.init({
+				swipeBack: false
+			});
+			window.onload=function(){
+				var userinformation = myajax;
+				userinformation.backfun=function(data){
+					console.log("数据",data)
+					document.getElementById("name").innerHTML=data.data.trueName
+					document.getElementById("snumber").innerHTML="学号："+data.data.universityId
+				}
+				userinformation.get("teacher/student/detail")
+			}
+				document.getElementById("index").addEventListener("tap",function(){
+				location.href="index.html"
+			})
+			document.getElementById("mypage").addEventListener("tap",function(){
+				location.href="mypage.html"
+			})
+			document.getElementById("morepage").addEventListener("tap",function(){
+				location.href="morepage.html"
+			})
+			function addnode(classname, address, event, id,url) {
+				var imgsrc
+				if(url==""){
+					imgsrc="pic/withoutimg.png"
+				}else{
+					imgsrc=myajax.baseurl+"/files/thumb/"+url
+				}
+				$("." + classname).append("<li class='info-item mui-table-view-cell'>" +
+					"<div style='display:none;'>" + id + "</div>" +
+					"<img class='ii-img' src='"+imgsrc+"' />" +
+					"<div class='ii-con'>" +
+					"<p class='iic-tit'><b>" + address + "</b></p>" +
+					"<p class='iic-con'>" + event + "</p></div>" +
+					"<p class='ii-more'>更多></p></li>"
+				)
+			}
+			myajax.backfun = function(data) {
+				for(i in data.data) {
+					if(data.data[i].orderState == "distributing" || data.data[i].orderState == "auditing") {
+						addnode("waitingForAudit", data.data[i].orderAddress, data.data[i].orderDescription, data.data[i].id,data.data[i].photos.photoPath1)
+					}
+					if(data.data[i].orderState == "maintenancing") {
+						addnode("waitingForRepair", data.data[i].orderAddress, data.data[i].orderDescription, data.data[i].id,data.data[i].photos.photoPath1)
+					}
+					if(data.data[i].orderState == "maintenanced") {
+						addnode("haveBeenRepaired", data.data[i].orderAddress, data.data[i].orderDescription, data.data[i].id,data.data[i].photos.photoPath1)
+					}
+					addnode("finish", data.data[i].orderAddress, data.data[i].orderDescription,data.data[i].id,data.data[i].photos.photoPath1)
+
+				}
+				mui('body').on('tap', '.info-item', function() {
+					console.log(this.firstChild.innerHTML)
+					localStorage.setItem("repair-id", this.firstChild.innerHTML)
+					mui.openWindow('repair_stata.html', 'repair-state', {})
+				})
+			}
+
+			myajax.get("repair/order/universityId")
+			mui.back = function() {
+				plus.runtime.quit();
+			};
+		</script>
+	</body>
+
+</html>

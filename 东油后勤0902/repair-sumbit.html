@@ -1,0 +1,307 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+
+		<link rel="stylesheet" type="text/css" href="css/nav.css" />
+
+		<style>
+			#info-card {
+				width: 100%;
+				height: auto;
+				background-color: #FFFFFF;
+				padding-top: 10px;
+			}
+			
+			#address,
+			#phone,
+			#todo {
+				width: 100%;
+				height: 44px;
+				padding-left: 20px;
+				padding-top: 10px;
+				border-bottom: 1px solid #e4e4e4;
+			}
+			
+			#address img,
+			#phone img,
+			#todo img {
+				margin-top: -2px;
+				width: 30px;
+				height: 27px;
+				float: left;
+			}
+			
+			#address-con,
+			#phone-con,
+			#todo-con { 
+				width: 80%;
+				font-family: "微软雅黑";
+				font-size: 14px;
+				color: #AAAAAA;
+				float: right;
+				margin-right: 17px;
+				border: none;
+				margin-top: -10px;
+			}
+			
+			#todo-con {
+				width: 96%;
+				height: 100px;
+				border: 1px solid #CCCCCC;
+				margin-left: 0;
+			}
+			
+			#pic-card {
+				margin-top: 20px;
+				width: 100%;
+				padding-top: 5px;
+				background-color: #FFFFFF;
+				height: auto;
+			}
+			
+			#pc-tit {
+				width: 100%;
+				height: 26px;
+				padding-left: 20px;
+				margin-top: 3px;
+				position: absolute;
+				border-bottom: 1px solid #E4E4E4;
+			}
+			
+			#pc-tit img {
+				width: 19px;
+				height: 19px;
+				float: left;
+				margin-left: 2px;
+			}
+			
+			#pc-tit p {
+				font-size: 14px;
+				margin-left: 10px;
+				color: #000000;
+				float: left;
+			}
+			
+			#pc-img {
+				margin-top: 26px;
+				width: 100%;
+				height: 97px;
+				background-color: #FFFFFF;
+			}
+			
+			.pci-img {
+				width: 65px;
+				height: 65px;
+				margin-top: 15px;
+				border-radius: 5px;
+				margin-left: calc((100% - (70px * 4))/4);
+				background-color: #edf3fd;
+				float: left;
+			}
+			
+			.pci-img img {
+				width: 26px;
+				height: 26px;
+				margin-top: 20px;
+			}
+			
+			#btn {
+				width: 96%;
+				margin-left: 2%;
+				margin-top: 10px;
+				background-color: #607EDF;
+				border: 1px #607EDF;
+			}
+			
+			.info-input {}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">申请报修</h1>
+		</header>
+		<div class="mui-content">
+			<div id="info-card">
+				<div id="address">
+					<img src="pic/mnuePlace.png" />
+					<input class="info-input" id="address-con" placeholder="维修地址" type="text" name="" id="" value="" />
+				</div>
+				<div id="phone">
+					<img style="width: 19px;height: 19px;margin-left: 5px;" src="pic/phone.png" />
+					<input class="info-input" id="phone-con" placeholder="联系电话" type="text" name="" id="" value="" />
+
+				</div>
+				<div style="height: 150px;" id="todo">
+					<img src="pic/TODO.png" />
+					<textarea style="margin-top: 5px;" class="info-input" id="todo-con" placeholder="实际情况" name="" rows="" cols=""></textarea>
+				</div>
+
+			</div>
+			<div id="pic-card">
+				<div id="pc-tit">
+					<img src="pic/Carmen.png" />
+					<p>具体照片</p>
+				</div>
+				<div id="pc-img">
+					<img class="pci-img" src="pic/add2.png" />
+					<img class="pci-img" src="pic/add2.png" />
+					<img class="pci-img" src="pic/add2.png" />
+					<img class="pci-img" src="pic/add2.png" />
+
+				</div>
+
+			</div>
+			<button id="btn" type="button" class="mui-btn mui-btn-blue">提&nbsp;&nbsp;交</button>
+		</div>
+		<script src="js/ajax.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/checkjs.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/mui.min.js"></script>
+
+		<script>
+			var selectimg;
+			var imglist = ["", "", "", ""]
+
+			function plusReady() {
+				// 弹出系统选择按钮框  
+				mui("body").on("tap", ".pci-img", function() {
+					document.getElementById("todo-con").blur()
+					document.getElementById("phone-con").blur()
+					document.getElementById("address-con").blur()
+					page.imgUp();
+
+					selectimg = $(this).index()
+
+				})
+
+			}
+
+			document.getElementById("btn").addEventListener("tap", function() {
+				if(document.getElementById("address-con").value == "") {
+					mui.toast('维修地址不能为空')
+					return;
+				}
+				if(document.getElementById("phone-con").value == "") {
+					mui.toast('联系方式不能为空')
+					return;
+				}
+				if(document.getElementById("todo-con").value == "") {
+					mui.toast('请对保修事件进行简单文字描述')
+					return;
+				}
+				if(mycheck.phoneNumber("phone-con") || document.getElementById("phone-con").value.length == 7) {
+					plus.nativeUI.showWaiting();
+					var task = plus.uploader.createUpload(myajax.baseurl + "repair/order/addOrder", {
+							method: "POST",
+							blocksize: 204800,
+							priority: 100
+						},
+						function(t, status) {
+							// 上传完成
+							if(status == 200) {
+								mui.toast('上传成功！')
+								plus.nativeUI.closeWaiting();
+								mui.back()
+							} else {
+								mui.toast('上传失败！')
+								plus.nativeUI.closeWaiting();
+
+							}
+						}
+					);
+					task.setRequestHeader("Authorization", localStorage.getItem("token"))
+					task.addFile(imglist[0], {
+						key: "files1"
+					});
+					task.addFile(imglist[1], {
+						key: "files2"
+					});
+					task.addFile(imglist[2], {
+						key: "files3"
+					});
+					task.addFile(imglist[3], {
+						key: "files4"
+					});
+					console.log(document.getElementById("address-con").value)
+					console.log(document.getElementById("phone-con").value)
+					console.log(document.getElementById("todo-con").value)
+					task.addData("orderAddress", document.getElementById("address-con").value);
+					task.addData("orderContact", document.getElementById("phone-con").value);
+					task.addData("orderDescription", document.getElementById("todo-con").value);
+					task.addData("orderState", "distributing");
+					task.start();
+				} else {
+					mui.toast('联系电话填写有误')
+				}
+
+			})
+			var page = null;
+			page = {
+				imgUp: function() {
+					var m = this;
+					plus.nativeUI.actionSheet({
+						cancel: "取消",
+						buttons: [{
+								title: "拍照"
+							},
+							{
+								title: "从相册中选择"
+							}
+						]
+					}, function(e) { //1 是拍照  2 从相册中选择  
+						switch(e.index) {
+							case 1:
+								appendByCamera();
+								break;
+							case 2:
+								appendByGallery();
+								break;
+						}
+					});
+				}
+				//摄像头  
+			}
+
+			// 拍照添加文件
+			function appendByCamera() {
+				plus.camera.getCamera().captureImage(function(e) {
+					console.log(e);
+					plus.io.resolveLocalFileSystemURL(e, function(entry) {
+						var path = entry.toLocalURL();
+						imglist[selectimg] = path;
+						document.getElementsByClassName("pci-img")[selectimg].src = path;
+
+						console.log(imglist)
+						//就是这里www.bcty365.com 
+					}, function(e) {
+						mui.toast("读取拍照文件错误：" + e.message);
+					});
+
+				});
+			}
+			// 从相册添加文件
+			function appendByGallery() {
+				plus.gallery.pick(function(path) {
+					imglist[selectimg] = path;
+					console.log(imglist)
+					document.getElementsByClassName("pci-img")[selectimg].src = path;
+
+				});
+			}
+
+			if(window.plus) {
+				plusReady();
+			} else {
+				document.addEventListener("plusready", plusReady, false);
+			}
+		</script>
+	</body>
+
+</html>

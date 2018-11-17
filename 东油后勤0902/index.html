@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/nav.css" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+		<style type="text/css">
+			#slider {
+				height: 170px;
+			}
+			
+			#mnue-item {
+				width: 100%;
+				height: 260px;
+				padding-left: 3%;
+				padding-right: 3%;
+				padding-bottom: 10px;
+				background: #FFFFFF !important;
+			}
+			
+			.item {
+				width: 33.33%;
+				height: 33.33%;
+				float: left;
+			}
+			
+			.icon {
+				width: 38px;
+				margin-top: 15px;
+				margin-left: calc(50% - 19px);
+			}
+			
+			.icon-con {
+				width: 100%;
+				text-align: center;
+				font-size: 12.5px;
+				font-family: "微软雅黑";
+				color: #666666;
+			}
+			
+			body {
+				background: #F5F6F7;
+			}
+			
+			.mui-content {
+				background: #F5F6F7;
+			}
+			
+			#repair-alert {
+				width: 100%;
+				height: 210px;
+				margin-top: 12px;
+				background-color: #FFFFFF;
+				overflow: hidden;
+				margin-bottom: 70px;
+			}
+			
+			#RL-tit {
+				width: 100%;
+				height: 30px;
+				border-bottom: 1px solid #d5e5e7;
+				position: absolute;
+				margin-top: -1px;
+				/*top: 5px;*/
+				background: #FFFFFF;
+			}
+			
+			#RL-tit b {
+				line-height: 30px;
+				font-size: 14px;
+				font-family: "微软雅黑";
+				margin-left: 27px;
+			}
+			
+			.RL-con-con {
+				float: left;
+				width: 70%;
+				margin-top: 7px;
+			}
+			
+			.RL-con {
+				width: 100%;
+				height: 70px;
+				margin-top: 20px;
+			}
+			
+			.RLC-img {
+				width: 54px;
+				height: 54px;
+				margin-top: 7px;
+				margin-left: 7px;
+				float: left;
+			}
+			
+			.RLCC-tit {
+				margin-top: 4px;
+				margin-left: 15px;
+				font-size: 14px;
+				color: #000000;
+			}
+			
+			.RLCC-con {
+				margin-left: 15px;
+				font-size: 13px;
+				color: #666666;
+				margin-top: -7px;
+				width: 25%;
+				/*border: 1px solid #000000;*/
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+			
+			.RLCC-time {
+				font-size: 12px;
+				font-family: "微软雅黑";
+				color: #617FDE;
+				float: right;
+				margin-right: -30px;
+				margin-top: -30px;
+			}
+			
+			.RLCC-add {
+				width: 37px;
+				height: 37px;
+				float: right;
+				margin-top: 15px;
+				margin-right: 5px;
+			}
+			
+			#RLT-cube {
+				width: 6px;
+				height: 20px;
+				background-color: #607EDF;
+				position: absolute;
+				margin-top: 3px;
+				margin-left: 7px;
+			}
+			
+			.RLCCT-cube {
+				width: 10px;
+				height: 10px;
+				border-radius: 2px;
+				float: right;
+				margin-top: -25px;
+				margin-right: 10px;
+				background-color: #607EDF;
+			}
+			
+			#move {
+				transition: 0.7s;
+			}
+			.RLCC-sno{
+				float: left;
+				margin-top: -30px;
+				margin-left: 90px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">东油后勤</h1>
+		</header>
+		<div class="mui-content">
+			<div id="slider" class="mui-slider">
+				<div class="mui-slider-group mui-slider-loop">
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img style="margin-top: -10px;" src="pic/lun4.jpg">
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="pic/lunbo1.jpg">
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="pic/lunbo2.jpg">
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="pic/lunbo3.jpg">
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img style="margin-top: -10px;" src="pic/lun4.jpg">
+						</a>
+					</div>
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="pic/lunbo1.jpg">
+						</a>
+					</div>
+				</div>
+				<div class="mui-slider-indicator">
+					<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+				</div>
+			</div>
+			<div id="mnue-item">
+				
+				<div onclick="location.href='component-con.html'" class="item">
+					<img class="icon" src="pic/alert.png" />
+					<p class="icon-con">部门简介</p>
+				</div>
+				<div onclick="location.href='consetting.html'" class="item">
+					<img class="icon" src="pic/servecheck.png" />
+					<p class="icon-con">机构设置</p>
+				</div>
+				<div onclick="location.href='alert-list.html'" class="item">
+					<img class="icon" src="pic/lostthing.png" />
+					<p class="icon-con">通知公告</p>
+				</div>
+				<div  onclick="location.href='repair_list.html'" class="item">
+					<img class="icon" src="pic/repair.png" />
+					<p class="icon-con">在线报修</p>
+				</div>
+				<div onclick="location.href='shool-heath.html'" class="item">
+					<img class="icon" src="pic/ask.png" />
+					<p class="icon-con">校园医疗</p>
+				</div>
+				<div onclick="location.href='behind-list.html'" class="item">
+					<img class="icon" src="pic/active.png" />
+					<p class="icon-con">后勤动态</p>
+				</div>
+				<div onclick="location.href='losethings.html'" class="item">
+					<img  class="icon" src="pic/lose2.png" />
+					<p class="icon-con">失物招领</p>
+				</div>
+				<div onclick="location.href='help.html'" class="item">
+					<img class="icon" src="pic/help.png" />
+					<p class="icon-con">操作指南</p>
+				</div>
+				<div  class="item no">
+					<img class="icon" src="pic/server.png" />
+					<p class="icon-con">服务监督</p>
+				</div>
+			</div>
+			<div style="padding-top: 10px;" id="repair-alert">
+				<div style="margin-bottom: 35px !important;margin-top: -10px;" id="RL-tit">
+					<div id="RLT-cube">
+
+					</div>
+					<b>报修通知</b>
+				</div>
+				<div id="move">
+
+				
+				</div>
+
+			</div>
+		</div>
+		<nav class="mui-bar mui-bar-tab">
+			<a id="index" class="mui-tab-item mui-active">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+
+			<a id="mypage" class="mui-tab-item">
+				<span class="mui-icon mui-icon-contact"></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+
+			<a id="morepage" class="mui-tab-item">
+				<span class="mui-icon mui-icon-gear"></span>
+				<span class="mui-tab-label">更多</span>
+			</a>
+		</nav>
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/ajax.js" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/javascript">
+			mui.init({})
+			mui('body').on('tap','.no',function(){
+			  mui.alert('如有其他具体问题，请与后勤相关部门联系沟通。联系热线：13936841688','服务','我知道了',function (e) {
+			     e.index
+			  },'div')
+			}) 
+			window.onload = function() {
+				
+				console.log(localStorage.getItem("loginmark"))
+				if(localStorage.getItem("loginmark") == undefined) {
+					localStorage.setItem("loginmark", 1)
+
+					mui.alert('若您的密码仍然为初始密码记得更改', '提示', '我知道啦', function(e) {
+						e.index
+					}, 'div')
+				}
+			}
+			document.getElementById("index").addEventListener("tap", function() {
+				location.href = "index.html"
+			})
+			document.getElementById("mypage").addEventListener("tap", function() {
+				location.href = "mypage.html"
+			})
+			document.getElementById("morepage").addEventListener("tap", function() {
+				location.href = "morepage.html"
+			})
+			
+			function putnumber(num){
+				return num.slice(0,3)+"****"+num.slice(8)
+			}
+			
+			myajax.backfun = function(data) {
+				
+				for(i = 0; i < 4; i++) {
+					var year = new Date(data.data[i].orderDate).getFullYear()
+					var month = new Date(data.data[i].orderDate).getMonth() + 1
+					var day = new Date(data.data[i].orderDate).getDate()
+					var imgsrc
+					if(data.data[i].photos.photoPath1==""){
+						imgsrc="pic/withoutimg.png"
+					}else{
+						imgsrc=myajax.baseurl + "files/thumb/" + data.data[i].photos.photoPath1
+					}
+					
+					$("#move").append("<div class='RL-con'>" +
+						"<img class='RLC-img' src='" + imgsrc + "' />" +
+						"<div class='RL-con-con'>" +
+						"<p class='RLCC-tit'><b>" + data.data[i].orderAddress + "</b></p>" +
+						"<p class='RLCC-con'>" + data.data[i].orderDescription + "</p>" +
+						"<p class='RLCC-sno'>"+putnumber(data.data[i].teacherStudent.universityId)+"</p>"+
+						"<p class='RLCC-time'>" + year + "-" + month + "-" + day + "</p>" +
+						"<div class='RLCCT-cube'></div>" 
+//						"</div><img class='RLCC-add' src='pic/addfriend.png' /></div>"
+					)
+				}
+				var year = new Date(data.data[0].orderDate).getFullYear()
+				var month = new Date(data.data[0].orderDate).getMonth() + 1
+				var day = new Date(data.data[0].orderDate).getDate()
+					if(data.data[0].photos.photoPath1==""){
+						imgsrc="pic/withoutimg.png"
+					}else{
+						imgsrc=myajax.baseurl + "files/thumb/" + data.data[0].photos.photoPath1
+					}
+				$("#move").append("<div class='RL-con'>" +
+					"<img class='RLC-img' src='" + imgsrc + "' />" +
+					"<div class='RL-con-con'>" +
+					"<p class='RLCC-tit'><b>" + data.data[0].orderAddress + "</b></p>" +
+					"<p class='RLCC-con'>" + data.data[0].orderDescription + "</p>" +
+						"<p class='RLCC-sno'>"+putnumber(data.data[0].teacherStudent.universityId)+"</p>"+
+					
+					"<p class='RLCC-time'>" + year + "-" + month + "-" + day + "</p>" +
+					"<div class='RLCCT-cube'></div>" 
+//					"</div><img class='RLCC-add' src='pic/addfriend.png' /></div>"
+				)
+				var year = new Date(data.data[1].orderDate).getFullYear()
+				var month = new Date(data.data[1].orderDate).getMonth() + 1
+				var day = new Date(data.data[1].orderDate).getDate()
+					if(data.data[1].photos.photoPath1==""){
+						imgsrc="pic/withoutimg.png"
+					}else{
+						imgsrc=myajax.baseurl + "files/thumb/" + data.data[1].photos.photoPath1
+					}
+				$("#move").append("<div class='RL-con'>" +
+					"<img class='RLC-img' src='" + imgsrc + "' />" +
+					"<div class='RL-con-con'>" +
+					"<p class='RLCC-tit'><b>" + data.data[1].orderAddress + "</b></p>" +
+					"<p class='RLCC-con'>" + data.data[1].orderDescription + "</p>" +
+						"<p class='RLCC-sno'>"+putnumber(data.data[1].teacherStudent.universityId)+"</p>"+
+					"<p class='RLCC-time'>" + year + "-" + month + "-" + day + "</p>" +
+					"<div class='RLCCT-cube'></div>" 
+//					"</div><img class='RLCC-add' src='pic/addfriend.png' /></div>"
+				)
+
+			}
+			myajax.get("repair/order/latestOrder")
+			var gallery = mui('.mui-slider');
+			gallery.slider({
+				interval: 10000 //自动轮播周期，若为0则不自动播放，默认为0；
+			});
+			var margintop = 0;
+			var move = document.getElementById("move")
+			setInterval(function() {
+				margintop -= 90
+				move.style.transition = "0.7s"
+				move.style.marginTop = margintop + "px"
+				if(margintop < -360) {
+
+					margintop = 0
+					move.style.transition = "0s";
+					move.style.marginTop = "0px";
+				}
+
+			}, 5000)
+			mui.back = function() {
+				plus.runtime.quit();
+			};
+		</script>
+	</body>
+
+</html>

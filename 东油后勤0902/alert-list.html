@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/nav.css" />
+		<style type="text/css">
+			.items img {
+				width: 25%;
+				float: left;
+				height: 70px;
+			}
+			
+			.i-con {
+				/*width: 100%;*/
+				/*float: left;*/
+				margin-left: 5%;
+				overflow: hidden;
+				text-overflow:ellipsis;
+				white-space: nowrap;
+			}
+			
+			.ic-title {
+				color: #000000;
+				font-size: 16px;
+				font-family: "黑体";
+				float: left;
+				font-weight: 900;
+				overflow: hidden;
+				width: 220px;
+				text-overflow:ellipsis;
+				white-space: nowrap;
+			}
+			
+			.ic-con {
+				font-size: 12px;
+				float: right;
+				padding-right: 7px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">通知公告</h1>
+		</header>
+		<div class="mui-content">
+			<ul id="ajax-con" style="margin-top: 0;" class="mui-table-view">
+				<!--<li onclick="location.href='alertpage/al1.html'" class="items mui-table-view-cell">
+					<div class="i-con">
+						<p class="ic-title">教职工餐厅营业公告</p>
+						<p class="ic-con">为满足我校教职员工的餐饮服务需求，后勤管理处利...</p>
+					</div>
+				</li>
+				<li onclick="location.href='alertpage/al2.html'" class="items mui-table-view-cell">
+					<div class="i-con">
+						<p class="ic-title">关于我校公共楼体全面清洁消毒的通知</p>
+						<p class="ic-con">全校各单位：夏秋交替之际，是呼吸道和消化道传...</p>
+					</div>
+				</li>
+				<li  onclick="location.href='alertpage/al3.html'" class="items mui-table-view-cell">
+					<div class="i-con">
+						<p class="ic-title">关于2018级新生入学体检通知及时间安排</p>
+						<p class="ic-con">根据《普通高等学校招生体检工作指导意见》、...</p>
+					</div>
+				</li>-->
+
+			</ul>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/ajax.js"></script>
+		<script src="js/jquery-2.1.0.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			myajax.backfun = function(data) {
+				data.data=data.data.reverse()//数组反转排序 注意！后端排序后请删除
+				for(i in data.data) {
+					data.data.sort(sortby)
+//					console.log(data.data[i].content.replace(/<(?!p).*?>/g, ""))
+//					console.log(data.data[i].content)
+					$("#ajax-con").append("<li id='"+data.data[i].id+"' class='items ajaxitems mui-table-view-cell'>" +
+						"<div class='i-con'>" +
+						"<p class='ic-title'>" + data.data[i].title + "</p>" +
+						"<p class='ic-con'>" + parsetime(data.data[i].time) + "</p>" +//去除img标签
+						"</div></li>")
+				}
+				mui('#ajax-con').on('tap','.ajaxitems',function(){
+					localStorage.setItem("alertid",this.id)
+//					console.log(this.id)
+				  mui.openWindow('alert-con.html','a-con',{})
+				}) 
+			}
+			myajax.get("notice/type/notice")
+//			data.data[i].content.replace(/<(?!c).*?>/g, "")
+			function parsetime(time){
+				var midtime = new Date(time)
+				return midtime.getFullYear()+"-"+(midtime.getMonth()+1)+"-"+midtime.getDate();
+			}
+		</script>
+	</body>
+
+</html>

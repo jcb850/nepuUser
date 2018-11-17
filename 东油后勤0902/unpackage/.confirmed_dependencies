@@ -1,0 +1,134 @@
+{
+  "login.html": {
+    "refer": [
+      "index.html"
+    ],
+    "resources": []
+  },
+  "index.html": {
+    "refer": [
+      "mypage.html",
+      "repair_list.html",
+      "login.html",
+      "morepage.html",
+      "withoutpage.html",
+      "component-con.html",
+      "consetting.html",
+      "alert-list.html",
+      "behind-list.html",
+      "losethings.html",
+      "help.html",
+      "shool-heath.html"
+    ],
+    "resources": [
+      "pic/addfriend.png"
+    ]
+  },
+  "mypage.html": {
+    "refer": [
+      "index.html",
+      "morepage.html",
+      "repair_stata.html",
+      "changepwd.html"
+    ],
+    "resources": []
+  },
+  "morepage.html": {
+    "refer": [
+      "index.html",
+      "mypage.html",
+      "login.html",
+      "changepwd.html"
+    ],
+    "resources": []
+  },
+  "repair_list.html": {
+    "refer": [
+      "repair_stata.html",
+      "repair-sumbit.html",
+      "index.html"
+    ],
+    "resources": []
+  },
+  "repair-sumbit.html": {
+    "refer": [
+      "repair_list.html"
+    ],
+    "resources": []
+  },
+  "changepwd.html": {
+    "refer": [
+      "mypage.html",
+      "morepage.html"
+    ],
+    "resources": []
+  },
+  "withoutpage.html": {
+    "refer": [
+      "index.html"
+    ],
+    "resources": []
+  },
+  "component-con.html": {
+    "refer": [
+      "index.html"
+    ]
+  },
+  "consetting.html": {
+    "refer": [
+      "index.html"
+    ]
+  },
+  "alertpage/al2.html": {
+    "refer": [
+      "alert-list.html"
+    ]
+  },
+  "alert-list.html": {
+    "refer": [
+      "index.html",
+      "alertpage/al2.html",
+      "alertpage/al1.html",
+      "alert-con.html"
+    ]
+  },
+  "behind-list.html": {
+    "refer": [
+      "index.html",
+      "alert-con.html"
+    ]
+  },
+  "losethings.html": {
+    "refer": [
+      "index.html",
+      "losethings-con.html"
+    ]
+  },
+  "help.html": {
+    "refer": [
+      "index.html"
+    ]
+  },
+  "alertpage/al1.html": {
+    "refer": [
+      "alert-list.html"
+    ]
+  },
+  "losethings-con.html": {
+    "refer": [
+      "losethings.html"
+    ]
+  },
+  "healthlearnlist.html": {
+    "refer": [
+      "alert-con.html",
+      "shool-heath.html"
+    ]
+  },
+  "shool-heath.html": {
+    "refer": [
+      "healthlearnlist.html",
+      "index.html"
+    ]
+  }
+}

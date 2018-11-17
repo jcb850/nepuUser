@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/nav.css" />
+		<style type="text/css">
+			.mui-table-view {
+				margin-top: 0 !important;
+				border: none !important;
+			}
+			
+			#man-info {
+				height: 81px;
+			}
+			
+			#mi-pic {
+				height: 54px;
+				margin-top: 2px;
+				margin-left: 4px;
+				float: left;
+			}
+			
+			#mi-con {
+				width: 80%;
+				height: 100%;
+				padding-top: 10px;
+			}
+			
+			#mic-tit,
+			#mic-con {
+				position: absolute;
+				left: 90px;
+			}
+			
+			#mic-tit {
+				color: #000000;
+			}
+			
+			#mic-con {
+				top: 42px;
+				font-size: 12px;
+			}
+			
+			#function,#function2 {
+				width: 100%;
+				height: 90px;
+				background-color: #FFFFFF;
+				margin-top: 25px;
+			}
+			#ves,.item img{
+				width: 26px;
+				height: 26px;
+				float: left;
+			}
+			.vescon,.item p{
+				float: left;
+				margin-left: 20px;
+				margin-top: 2px;
+				color: #3B4B62;
+			}
+			#function2{
+				height: auto;
+				
+			}
+			.mui-table-view:before,.mui-table-view:after{
+			    background-color: #FFFFFF;
+			
+			}
+			#btn{
+				margin-top: 20px;
+				width: 100%;
+				height: 44px;
+				font-size: 16px;
+				color: orangered;
+				text-align: center;
+				line-height: 44px;
+				background-color: #FFFFFF;
+				
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">更多</h1>
+		</header>
+		<div  class="mui-content">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a id="man-info" class="mui-navigate-right">
+						<img id="mi-pic" src="pic/headimg.png" />
+						<div id="mi-con">
+							<p id="mic-tit"><b></b></p>
+							<p id="mic-con">学号: </p>
+						</div>
+					</a>
+				</li>
+			</ul>
+			<div style="margin-top: 19px;" id="function">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a  class="item mui-navigate-right">
+							<img src="pic/myinfo.png"/>
+							<p > 我的信息</p>
+						</a>
+					</li>
+					<li onclick="location.href='changepwd.html'" class="mui-table-view-cell">
+						<a class="item mui-navigate-right">
+							<img  src="pic/changepwd.png"/>
+							<p>修改密码</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div id="function2">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a  class="item mui-navigate-right">
+							<img  src="pic/unright.png"/>
+							<p>免责声明</p>
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+							<img id="ves"  src="pic/vesion.png"/>
+							<p class="vescon">版本号</p>
+							<p style="float: right;" class="vescon">v1.1.1</p>
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="item mui-navigate-right">
+							<img  src="pic/feedback.png"/>
+							<p>反馈意见</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div onclick="location.href='login.html'" id="btn">
+				退&nbsp;&nbsp;出
+			</div>
+		</div>
+		<nav class="mui-bar mui-bar-tab">
+			<a id="index" class="mui-tab-item">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a id="mypage" class="mui-tab-item">
+				<span class="mui-icon mui-icon-contact "></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+
+			<a id="morepage" class="mui-tab-item mui-active">
+				<span class="mui-icon mui-icon-gear"></span>
+				<span class="mui-tab-label">更多</span>
+			</a>
+		</nav>
+		<script src="js/mui.min.js"></script>
+		<script src="js/ajax.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.init()
+			window.onload=function(){
+				var userinformation = myajax;
+				userinformation.backfun=function(data){
+					console.log("数据",data)
+					document.getElementById("mic-tit").innerHTML="<b>"+data.data.trueName+"</b>"
+					document.getElementById("mic-con").innerHTML="学号："+data.data.universityId
+				}
+				userinformation.get("teacher/student/detail")
+			}
+			document.getElementById("index").addEventListener("tap",function(){
+				location.href="index.html"
+			})
+			document.getElementById("mypage").addEventListener("tap",function(){
+				location.href="mypage.html"
+			})
+			document.getElementById("morepage").addEventListener("tap",function(){
+				location.href="morepage.html"
+			})
+			mui.back = function() {
+				plus.runtime.quit();
+			};
+		</script>
+	</body>
+
+</html>

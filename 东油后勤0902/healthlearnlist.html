@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/nav.css" />
+		<style type="text/css">
+			.mui-navigate-right{
+				font-family: "黑体";
+				font-weight: 900;
+				
+			}
+			.ajaxitem{
+				/*height: 50px;*/
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">健康知识</h1>
+
+		</header>
+		<div class="mui-content">
+			<ul id="ajax-con" style="margin-top: 0;" class="mui-table-view">
+				<!--<li onclick="location.href='hl1.html'" class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						艾滋病预防和控制核心知识
+					</a>
+				</li>
+				
+				<li onclick="location.href='hl5.html'" class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						牙周疾病防治小办法
+					</a>
+				</li>-->
+			</ul>
+		</div>
+		<script src="js/mui.min.js"></script>
+	<script src="js/ajax.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.init()
+			myajax.backfun=function(data){
+				data.data=data.data.reverse()//数组反转排序 注意！后端排序后请删除
+				
+				for(i in data.data){
+					$("#ajax-con").append("<li id='"+data.data[i].id+"' class='ajaxitem mui-table-view-cell'>"+
+					"<a class='mui-navigate-right'>"+
+						data.data[i].title+
+					"</a></li>")
+				}
+				mui('#ajax-con').on('tap','.ajaxitem',function(){
+				  localStorage.setItem("alertid",this.id)
+				  mui.openWindow('alert-con.html','alt',{})
+				}) 
+			}
+			myajax.get("notice/type/health")
+		</script>
+	</body>
+
+</html>

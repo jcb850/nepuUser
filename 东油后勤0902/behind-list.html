@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/nav.css" />
+		<style type="text/css">
+			.items img {
+				width: 25%;
+				float: left;
+				height: 60px;
+				/*border: 1px solid #CCCCCC;*/
+			}
+			
+			.i-con {
+				width: 70%;
+				float: left;
+				margin-left: 5%;
+				margin-top: 3px;
+			}
+			
+			.ic-title {
+				line-height: 25px;
+				color: #000000;
+				font-size: 16px;
+				font-family: "微软雅黑";
+				font-weight: 900;
+				float: left;
+			
+			}
+			
+			.ic-con {
+				margin-top: -18px;
+				float: right;
+				font-size: 12px;
+				margin-right: 7px;
+				/*overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;*/
+				/*text-align: right !important;*/
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">后勤动态</h1>
+		</header>
+		<div class="mui-content">
+			<ul id="ajax-con" style="margin-top: 0;" class="mui-table-view">
+				<!--<li onclick="location.href='behindcon1.html'" class="items mui-table-view-cell">
+					<img src="http://news.nepu.edu.cn/UserFiles/image/20180823/1535017169054033736.jpg" />
+					<div class="i-con">
+						<p class="ic-title">后勤整改进行时</p>
+						<p class="ic-con">2018-08-23</p>
+					</div>
+				</li>
+				<li onclick="location.href='behindcon2.html'" class="items mui-table-view-cell">
+					<img src="http://news.nepu.edu.cn/UserFiles/image/20180822/1534927067787068651.jpg" />
+					<div class="i-con">
+						<p class="ic-title">后勤整改进行时</p>
+						<p class="ic-con">2018-08-22</p>
+					</div>
+				</li>
+				<li onclick="location.href='behindcon3.html'" class="items mui-table-view-cell">
+					<img src="http://news.nepu.edu.cn/UserFiles/image/20180815/1534317816225070407.jpg" />
+					<div class="i-con">
+						<p class="ic-title">后勤整改</p>
+						<p class="ic-con">2017-08-15</p>
+					</div>
+				</li>
+				<li onclick="location.href='behindcon4.html'" class="items mui-table-view-cell">
+					<img src="http://news.nepu.edu.cn/UserFiles/image/20180712/1531378544739062884.jpg" />
+					<div class="i-con">
+						<p class="ic-title">安全检查</p>
+						<p class="ic-con">2018-07-12</p>
+					</div>
+				</li>-->
+
+			</ul>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/ajax.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.init()
+
+			function onErrorHandle(obj) {
+				obj.src = "pic/withoutimg.png";
+
+			}
+			myajax.backfun = function(data) {
+				//data.data=data.data.reverse()//数组反转排序 注意！后端排序后请删除
+				
+				for(i in data.data) {
+					data.data.sort(sortby)
+					var time = new Date( data.data[i].time)
+					var title = data.data[i].title
+					title = title.substring(0, 20)+"...";
+					$("#ajax-con").append(
+						"<li id='" + data.data[i].id + "' class='items ajaxitem mui-table-view-cell'>" +
+						"<img onerror='onErrorHandle(this)' src='" + myajax.baseurl + "files/thumb/" + data.data[i].cover + "'/>" +
+						"<div class='i-con''>" +
+						"<p class='ic-title'>" + title+ "</p>" +
+						"<p class='ic-con'>" + time.getFullYear()+"-" +(time.getMonth()+1).toString()+"-"+time.getDate() + "</p>" +
+						"</div></li>")
+				}
+				mui('#ajax-con').on('tap', '.ajaxitem', function() {
+					localStorage.setItem("alertid", this.id)
+					mui.openWindow('alert-con.html', 'altid', {})
+				})
+
+			}
+			myajax.get("notice/type/dynamic")
+		</script>
+	</body>
+
+</html>

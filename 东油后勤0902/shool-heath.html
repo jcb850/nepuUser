@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/nav.css" />
+		<style type="text/css">
+			#itemcon {
+				width: 100%;
+				margin-top: 10px;
+			}
+			
+			.items {
+				width: 29%;
+				margin-left: 3.33%;
+				/*border: 1px solid #000000;*/
+				float: left;
+				height: 75px;
+				border-radius: 5px;
+			}
+			
+			.items p {
+				text-align: center;
+				color: #FFFFFF;
+				margin-top: -5px;
+				font-size: 13pxss;
+			}
+			.items img{
+				width: 44px;
+				margin-left: calc(50% - 22px);
+				margin-top: 5px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">校园医疗</h1>
+
+		</header>
+		<div class="mui-content">
+			<div id="itemcon">
+				<div onclick="location.href='hos-ins.html'" style="background-color: #92cf68;" class="items">
+					<img src="pic/companyindusty.png" />
+					<p>医院简介</p>
+				</div>
+				<div onclick="location.href='keshi-ins.html'" style="background-color: #59b3df;" class="items">
+					<img src="pic/room.png" />
+					<p>科室介绍</p>
+				</div>
+				<div  onclick="location.href='healthlearnlist.html'" style="background-color: #f3c044;" class="items">
+					<img src="pic/healthlearn.png" />
+					<p>健康知识</p>
+				</div>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>

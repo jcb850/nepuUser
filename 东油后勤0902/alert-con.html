@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/nav.css"/>
+		<style type="text/css">
+			#title{
+				width: 100%;
+				height: auto;
+				line-height: 30px;
+				text-align: center;
+				color: #000000;
+				font-family: "微软雅黑";
+				
+				font-size: 18px;
+			}
+			#timeline{
+				width: 100%;
+				text-align: center;
+			}
+			#imgcon,img{
+				width: 100%;
+				height: auto !important;
+				margin-left: 0 ;
+				float: left;
+				margin-top: 10px;
+				
+				
+				
+			}
+			#imgcon{
+				/*height: ;*/
+			}
+			#imgcon img{
+				width: 80% ;
+				/*margin-left: 10% !important;*/
+			}
+			#cover{
+				margin-left: 10%;
+			}
+			#textcon{
+				width: 100%;
+				height: auto;
+				
+			}
+			#textcon p{
+				width: 80%;
+				margin-left: 10%;
+				/*margin-top: 20px;*/
+				margin-bottom: 0 !important;
+				/*line-height: 20px;*/
+				letter-spacing: 1px;
+				text-indent: 2em;
+				/*font-family: "微软雅黑";*/
+			}
+			#ajax-con{
+				padding-bottom: 100px;
+				height: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">详情</h1>
+		</header>
+		<div id="ajax-con" class="mui-content">
+		    <p id="title"></p>
+		    <p id="timeline"></p>
+		    <div id="imgcon">
+		    	<!--<img id="cover" src=""/>-->
+		    </div>
+		    <div id="textcon">
+		    	<!--<p>&nbsp;&nbsp;</p>-->
+		    </div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/ajax.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			myajax.backfun=function(data){
+				var time = new Date(data.data.time)
+				document.getElementById("title").innerHTML=data.data.title
+				document.getElementById("timeline").innerHTML="-"+time.getFullYear()+"年"+(time.getMonth()+1)+"月"+time.getDate()+"日-"
+//				document.getElementById("cover").src= myajax.baseurl+"files/original/"+ data.data.cover
+				document.getElementById("textcon").innerHTML=data.data.content
+			}
+			myajax.get("notice/"+localStorage.getItem("alertid"))
+		</script>
+	</body>
+
+</html>

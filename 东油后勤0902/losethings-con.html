@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/nav.css"/>
+		<style type="text/css">
+			#thing-img{
+				width: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">失物招领</h1>
+		</header>
+		<div class="mui-content">
+		    <ul style="margin-top:0 ;" class="mui-table-view">
+		            <li class="mui-table-view-cell">
+		                <p id="tname">物品名称：</p>
+		            </li>
+		            <li class="mui-table-view-cell">
+		                <p id="phone">联系方式：</p>
+		            </li>
+		            <li class="mui-table-view-cell">
+		                <p id="address">领取地址：</p>
+		            </li>
+		               <li class="mui-table-view-cell">
+		                <p id="getaddress">拾取地址：</p>
+		            </li>
+		            <li class="mui-table-view-cell">
+		                <p id="descrb">物品描述：</p>
+		            </li>
+		            <li class="mui-table-view-cell">
+		                <p id="time">拾取时间：</p>
+		            </li>
+		            <li  class="mui-table-view-cell">
+		                <p id="time">物品图片：</p>
+		                <img onerror="this.src='pic/withoutimg.png'" id="thing-img" src="" /> 
+		            </li>
+		            
+		        </ul>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/ajax.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			myajax.backfun=function(data){
+				var time = new Date(data.data.pickTime)
+				document.getElementById("tname").innerHTML+=data.data.title
+				document.getElementById("phone").innerHTML+=data.data.contactWay
+				document.getElementById("address").innerHTML+=data.data.getAddress
+				document.getElementById("getaddress").innerHTML+=data.data.pickAddress
+				document.getElementById("descrb").innerHTML+=data.data.content
+				document.getElementById("thing-img").src=myajax.baseurl+"files/original/"+data.data.photo
+				document.getElementById("time").innerHTML+=time.getFullYear()+"/"+(time.getMonth()+1).toString()+"/"+time.getDate()
+			}
+			myajax.get("/lost/and/found/"+localStorage.getItem("lostid"))
+		</script>
+	</body>
+
+</html>

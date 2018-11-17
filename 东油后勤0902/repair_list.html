@@ -1,0 +1,519 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/nav.css" />
+		<script src="js/mui.min.js"></script>
+		<style>
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+			
+			body {
+				background: #F5F6F7;
+			}
+			
+			.mui-bar a {
+				color: white;
+			}
+			
+			.mui-title {
+				color: white;
+				font-size: 18px;
+				font-family: "黑体";
+			}
+			
+			.mui-content>.mui-table-view:first-child {
+				margin-top: 0px;
+			}
+			
+			.mui-content {
+				background: #F5F6F7;
+			}
+			
+			.btn {}
+			
+			#btn {
+				float: right;
+				color: #FFFFFF;
+				margin-right: -10px;
+				margin-top: -1px;
+			}
+			
+			.mui-table-view-cell>a:not(.mui-btn) {
+				white-space: normal;
+			}
+			
+			.p1 {
+				font-size: 12px;
+			}
+			
+			.mui-table-view .mui-media-object {
+				height: 60px;
+				width: 60px;
+				max-width: 60px;
+			}
+			
+			.time {
+				font-size: 10px;
+				color: black;
+				position: absolute;
+				bottom: 5px;
+				right: 5%;
+			}
+			
+			.doing {
+				color: orange;
+			}
+			
+			.finish {
+				color: green;
+			}
+			
+			.start {
+				color: #0174E5;
+			}
+			
+			#ajax-con {
+				margin-top: 10px;
+			}
+			
+			#dateList {
+				width: 100%;
+				height: 85px;
+				background-color: #FFFFFF;
+				box-shadow: 0px 0px 2px #cccccc;
+				overflow-x: scroll;
+				overflow-y: hidden;
+				white-space: nowrap;
+			}
+			
+			.dateItem {
+				width: 50px;
+				height: 85px;
+				display: inline-block !important;
+			}
+			
+			.dateItem p {
+				width: 100%;
+				text-align: center;
+				font-size: 12px;
+				font-family: "微软雅黑";
+				margin-top: 2px;
+			}
+			
+			#dataListItem {
+				height: 100%;
+			}
+			
+			#dateNav {
+				width: 100%;
+				height: 25px;
+				background-color: #f5f6f7;
+			}
+			
+			#Today {
+				margin-top: 7px;
+				width: 100%;
+				height: 25px;
+				background-color: #eceffb;
+			}
+			
+			#Today p {
+				line-height: 25px;
+				margin-left: 15px;
+				font-size: 12px;
+				font-family: "微软雅黑";
+			}
+			
+			.select {
+				width: 40px;
+				height: 40px;
+				background-color: #617fde;
+				border-radius: 20px;
+				padding-top: 7px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			
+			.select p {
+				color: #FFFFFF;
+			}
+			
+			.unselect {
+				width: 40px;
+				height: 40px;
+				padding-top: 7px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			
+			.unselect p {
+				color: #000000;
+			}
+			
+			.weekend {
+				color: #F8C429;
+				background-color: #F5F6F7;
+			}
+			
+			.workday {
+				background-color: #F5F6F7;
+			}
+			
+			.card-item {
+				width: 94%;
+				margin-left: 3%;
+				border-radius: 5px;
+				background-color: #DFE5F8;
+				height: 100px;
+				margin-bottom: 12px;
+				box-shadow: 0px 1px 1px #CCCCCC;
+			}
+			
+			.pic {
+				width: 70px;
+				height: 70px;
+				margin-top: 15px;
+				border-radius: 3px;
+				margin-left: 15px;
+				float: left;
+			}
+			
+			.card-con {
+				width: 70%;
+				float: left;
+			}
+			
+			.tit {
+				margin-top: 12px;
+				margin-left: 10px;
+				color: #000000;
+				font-family: "微软雅黑";
+				font-size: 14px;
+			}
+			
+			.con {
+				margin-left: 10px;
+				font-size: 13px;
+				width: 100%;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+			
+			.conbtn {
+				position: absolute;
+				right: 26px;
+				width: 60px;
+				height: 26px;
+				margin-top: 67px;
+				line-height: 0px;
+				background-color: #FFFFFF;
+				border: none;
+				color: #617FDE;
+			}
+			
+			#circle {
+				width: 47px;
+				height: 47px;
+				border-radius: 30px;
+				background: #617FDE;
+				position: fixed;
+				bottom: 30px;
+				right: 30px;
+				z-index: 99999;
+				box-shadow: 0px 0px 15px #617FDE;
+			}
+			
+			#circle img {
+				width: 70%;
+				margin-left: 15%;
+				margin-top: 15%;
+			}
+			
+			#yearAndmonth {
+				width: 100%;
+				height: 0px;
+				background-color: #FFFFFF;
+				overflow: hidden;
+				transition: 0.6s;
+			}
+			
+			.mui-icon-back {
+				color: #3366CC;
+			}
+			
+			.mui-icon-forward {
+				color: #3366CC;
+			}
+			
+			.YM-item {
+				width: 100px;
+				height: 30px;
+				float: left;
+				text-align: center;
+			}
+			
+			.YM-item span {
+				float: left;
+				width: 18px;
+				height: 18px;
+			}
+			
+			.YM-item span,
+			.YM-item p,
+			#dataicon {
+				margin-top: 10px;
+			}
+			
+			.YM-item p {
+				float: left;
+				font-size: 16px;
+				line-height: 25px;
+				color: #3366CC;
+				margin-left: 7px;
+			}
+			
+			#dataicon {
+				margin-top: 11px;
+				margin-right: 7px;
+				height: 20px;
+				float: right;
+			}
+			
+			#dot {
+				margin-top: 7px;
+				margin-left: calc((100% - 260px) / 2 - 12px);
+				float: left;
+				height: 30px;
+			}
+		</style>
+
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</head>
+
+	<body>
+		<header id="hey" class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">报修列表</h1>
+			<img id="dataicon" src="pic/dataicon.png" />
+		</header>
+
+		<div class="mui-content">
+			<div id="yearAndmonth">
+				<div style="margin-left: 30px;" class="YM-item">
+					<span class="reduce mui-icon mui-icon-back"></span>
+					<p id="yearitem"><b></b></p>
+					<span class="add mui-icon mui-icon-forward"></span>
+				</div>
+				<img id="dot" src="pic/dot.png" />
+				<div style="float:right;margin-right:27px;" class="YM-item">
+					<span class="reduce mui-icon mui-icon-back"></span>
+					<p style="margin-left: 10px; margin-right: 10px;" id="monthitem"><b></b></p>
+					<span style="margin-left: -10px;"  class="add mui-icon mui-icon-forward"></span>
+				</div>
+
+			</div>
+			<div id="dateList">
+
+			</div>
+
+			<div id="Today">
+				<p>TODAY</p>
+			</div>
+			<div id="ajax-con">
+				
+			</div>
+		</div>
+		<div onclick="location.href='repair-sumbit.html'" id="circle">
+			<img src="pic/addicon.png" />
+		</div>
+		<script src="js/ajax.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/dateMnueMaker.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			mui.init({})
+			var Qyear, Qmonth;
+			
+
+			Qyear = new Date().getFullYear()
+			Qmonth = new Date().getMonth() + 1
+			document.getElementsByClassName("add")[0].addEventListener("tap", function() {
+				Qyear++
+				document.getElementById("yearitem").innerHTML = "<b>" + Qyear + "年</b>"
+				makeDivOther(Qyear, Qmonth)
+			})
+			document.getElementsByClassName("add")[1].addEventListener("tap", function() {
+				Qmonth++
+				if(Qmonth == 0) {
+					Qmonth = 12
+				}
+				if(Qmonth == 13) {
+					Qmonth = 1
+				}
+				document.getElementById("monthitem").innerHTML = "<b>" + Qmonth + "月</b>"
+				makeDivOther(Qyear, Qmonth)
+			})
+			document.getElementsByClassName("reduce")[0].addEventListener("tap", function() {
+				Qyear--
+				if(Qyear == 0) {
+					Qyear = new Date().getFullYear()
+					mui.toast('哇兄弟，你是真的无聊')
+				}
+				document.getElementById("yearitem").innerHTML = "<b>" + Qyear + "年</b>"
+
+				makeDivOther(Qyear, Qmonth)
+			})
+			document.getElementsByClassName("reduce")[1].addEventListener("tap", function() {
+				Qmonth--
+				if(Qmonth == 0) {
+					Qmonth = 12
+				}
+				if(Qmonth == 13) {
+					Qmonth = 1
+				}
+				document.getElementById("monthitem").innerHTML = "<b>" + Qmonth + "月</b>"
+				makeDivOther(Qyear, Qmonth)
+			})
+			document.getElementById("yearitem").innerHTML = "<b>" + Qyear + "年</b>"
+			document.getElementById("monthitem").innerHTML = "<b>" + Qmonth + "月</b>"
+
+			var mark = false
+			document.getElementById("dataicon").addEventListener("tap", function() {
+//				alert(123)
+				if(mark) {
+					document.getElementById("yearAndmonth").style.height = "0px"
+//
+				} else {
+					document.getElementById("yearAndmonth").style.height = "43px"
+				}
+				mark = !mark
+			})
+
+			function getday(date) { //根据年月日获取星期
+				var arys1 = []
+				arys1 = date.split('-'); //日期为输入日期，格式为 2013-3-10
+				//				console.log(arys1);
+				var ssdate = new Date(arys1[0], parseInt(arys1[1] - 1), arys1[2]);
+				var week1 = String(ssdate.getDay()).replace("0", "Sun").replace("1", "Mon").replace("2", "Tue").replace("3", "Wed").replace("4", "Thr").replace("5", "Fri").replace("6", "Sat") //就是你要的星期几
+				return week1
+			}
+
+			function getdayclass(date) { //根据年月日获取星期
+				var arys1 = []
+				arys1 = date.split('-'); //日期为输入日期，格式为 2013-3-10
+				//				console.log(arys1);
+				var ssdate = new Date(arys1[0], parseInt(arys1[1] - 1), arys1[2]);
+				var week1 = String(ssdate.getDay()).replace("0", "weekend").replace("1", "workday").replace("2", "workday").replace("3", "workday").replace("4", "workday").replace("5", "workday").replace("6", "workday") //就是你要的星期几
+				return week1
+			}
+
+			function makeDiv() { //动态添加上方日期栏
+				var daycount
+				var Fdaycount
+				var dayclass;
+				var year = new Date().getFullYear()
+				var month = new Date().getMonth() + 1
+				if((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+					Fdaycount = 29;
+				} else {
+					Fdaycount = 28;
+				}
+				if(new Date().getDay() == 0 || new Date().getDay() == 6) {
+					dayclass = "weekend"
+				} else {
+					dayclass = "workday"
+				}
+				switch(month) {
+					case 1:
+						;
+					case 3:
+						;
+					case 5:
+						;
+					case 7:
+						;
+					case 8:
+						;
+					case 10:
+						;
+					case 12:
+						;
+						daycount = 31;
+						break;
+					case 2:
+						daycount = Fdaycount;
+						break;
+					default:
+						daycount = 30;
+						break;
+				}
+				for(i = 0; i < daycount; i++) {
+					var selectclass = "unselect"
+					if((i + 1) == new Date().getDate()) {
+						selectclass = "select"
+					}
+					$("#dateList").append("<div  class='dateItem'><p class='" + getdayclass(year + "-" + month + "-" + (i + 1).toString()) + "'>" + getday(year + "-" + month + "-" + (i + 1).toString()) + "</p><div class='forif " + selectclass + "'><p >" + (i + 1).toString() + "</p></div></div>");
+				}
+				document.getElementById("dateList").scrollLeft = 41.5 * new Date().getDate()
+				myajax.backfun = function(data) {
+					$("#ajax-con").empty()
+					data.data.sort(sortby)
+					
+					for(i in data.data) {
+						var imgurl=myajax.baseurl +"files/thumb/"+data.data[i].photos.photoPath1
+						console.log(data.data[i].photos.photoPath1)
+						if(data.data[i].photos.photoPath1==""){
+							imgurl="pic/withoutimg.png"
+						}
+						forajax(data.data[i].orderAddress, data.data[i].orderDescription,data.data[i].id,imgurl)
+					}
+					mui('body').on('tap', '.card-item', function() {
+						console.log(this.firstChild.innerHTML )
+						localStorage.setItem("repair-id",this.firstChild.innerHTML )
+						mui.openWindow('repair_stata.html', 'r-state', {})
+					})
+				}
+				myajax.get("repair/order/time/" + Qyear + "-" + Qmonth + "-" + new Date().getDate()) //打开页面时的ajax请求
+
+				mui('#dateList').on('tap', '.dateItem', function() { 
+					var index = $(this).index()
+					for(i in document.getElementsByClassName("forif")) {
+						document.getElementsByClassName("forif")[i].className = "forif unselect";
+					}
+					document.getElementsByClassName("forif")[index].className = "forif select"
+					console.log("ajax用", Qyear)
+					console.log("ajax用", Qmonth)
+					console.log("ajax用", index + 1)
+					myajax.get("repair/order/time/" + Qyear + "-" + Qmonth + "-" + (index + 1).toString()) //点击时的ajax请求
+				})
+
+			}
+			makeDiv()
+
+			function forajax(place, con,id,imgurl) {
+
+				$("#ajax-con").append(
+					"<div class='card-item'>" +
+					"<div style='display:none;'>"+id+"</div>"+ 
+					"<img class='pic' src='"+imgurl+"' />" +
+					"<div class='card-con'>" +
+					"<p class='tit'>地点：" + place + "</p>" +
+					"<p class='con'>实际情况：" + con + "</p>" +
+					"</div>" +
+					"<button type='button' class='conbtn mui-btn mui-btn-grey'>详情</button>" +
+					"</div>"
+				)
+			}
+		</script>
+	</body>
+
+</html>
